@@ -7,6 +7,7 @@ package aspect;
 
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
+import org.aspectj.lang.annotation.Pointcut;
 
 /**
  *
@@ -14,8 +15,19 @@ import org.aspectj.lang.annotation.Before;
  */
 @Aspect
 public class LoggingAspc {
-    @Before("execution(public String getName())")
+//    @Before("execution(public * model.*.get*(..))")
+    
+    @Before("allGetter()")
     public void loggingAdvi(){
         System.out.println("Log in Advice Log Aspect.Before method");
+    }
+    
+//    @Before("execution(* get*(..))")
+    @Before("allGetter()")
+    public void secAdv(){
+        System.out.println("Exc Log in Sec Advice Log Aspect.");
+    }
+    @Pointcut("execution(* get*(..))")
+    public void allGetter(){
     }
 }
