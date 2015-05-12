@@ -22,8 +22,8 @@ public class SpringAOP {
         ApplicationContext ctx = new ClassPathXmlApplicationContext("spring.xml");
 //        Shape shapeService = (Shape) ctx.getBean("shapeService");
         ShapeSrv shapeService =   ctx.getBean("shapeService", ShapeSrv.class);
-        System.out.println(shapeService.getTriangle().getName());
-//        System.out.println(shapeService.getCircle().getName());
+ //       System.out.println(shapeService.getTriangle().getName());
+        System.out.println(shapeService.getCircle().getName());
     }
     
 }

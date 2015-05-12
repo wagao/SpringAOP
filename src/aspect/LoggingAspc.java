@@ -17,17 +17,25 @@ import org.aspectj.lang.annotation.Pointcut;
 public class LoggingAspc {
 //    @Before("execution(public * model.*.get*(..))")
     
-    @Before("allGetter()")
+    @Before("allGetter() && allCircleMed()")// combine pointcuts
     public void loggingAdvi(){
         System.out.println("Log in Advice Log Aspect.Before method");
     }
     
 //    @Before("execution(* get*(..))")
-    @Before("allGetter()")
+    @Before("allGetter()") 
     public void secAdv(){
         System.out.println("Exc Log in Sec Advice Log Aspect.");
     }
     @Pointcut("execution(* get*(..))")
-    public void allGetter(){
-    }
+    public void allGetter(){    }
+    
+    @Pointcut("within(model.Circle)") // any method within that Class    
+//    @Pointcut("within(model.Circle..*)") // any method or subPackage method, or class
+    public void allCircleMed(){    }
+    
+    
+    
+//    @Pointcut(args())
+//    public void allCircle(){    }
 }
