@@ -22,41 +22,7 @@ import org.aspectj.lang.annotation.Pointcut;
  */
 @Aspect
 public class LoggingAspc {
-//    @Before("execution(public * model.*.get*(..))")
-    
-//    @After("args(str)")
-//     public void stringArgumentsMed(String str){
-//        System.out.println("after Meds take String as Para:"+str);         
-//     }
-//     
-//    @AfterReturning("args(str)")
-//     public void stringArgumentsMedAfterReturn(String str){
-//        System.out.println("run after Meds Return"+str);         
-//     }
-//     
-//    @AfterThrowing("args(str)")
-//     public void theAfterThrow(String str){
-//        System.out.println("Exception:  ");         
-//     }
-//     
-//    @AfterReturning(pointcut="args(str)", returning="returningObje")
-//     public void myReturnSet(String str,Object returningObje){
-//        System.out.println("Return after Return "+returningObje);         
-//     }
-//    
-//     
-//    @AfterThrowing(pointcut="args(str)", throwing="throwEx")
-//     public void myThrowSet(String str,  NullPointerException throwEx){
-//        System.out.println("Throw after Null Ex:"+ throwEx );         
-//     }
-//     
-//    @AfterThrowing(pointcut="args(str)", throwing="throwEx")
-//     public void myThrowSet2(String str, IndexOutOfBoundsException throwEx){
-//        System.out.println("out of bound Ex:"+ throwEx );         
-//     }
-//     
-//     @Around("allGetter()")
-    @Around("@annotation(aspect.Loggable)")
+//    @Around("allGetter()")
      public Object myAround(ProceedingJoinPoint pjp){
          Object returnValue =null;
          try{
@@ -69,7 +35,7 @@ public class LoggingAspc {
         System.out.println("After Around Finally");
         return returnValue;
      }
-     
-    @Pointcut("execution(* get*())")
-    public void allGetter(){}
+//     
+//    @Pointcut("execution(* get*())")
+//    public void allGetter(){}
 }

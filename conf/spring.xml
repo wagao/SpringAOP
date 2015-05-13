@@ -20,5 +20,15 @@
     
     <aop:aspectj-autoproxy> </aop:aspectj-autoproxy>
     <bean name="logginAspect" class="aspect.LoggingAspc" > </bean>
+   <aop:config> <!-- transfer annotation from aspect java file to xml-->
+       <aop:aspect  id = "logginAspect" ref="logginAspect">
+<!--          <aop:pointcut id="allGetters" expression="execution(* get*())" />       @Pointcut("execution(* get*())")
+          <aop:around method="myAround" pointcut-ref="allGetters" />       @Around("allGetter()")-->
+          
+          <aop:beofre argu-names="" method="myAround" pointcut="execution(* get*())" />     <!-- XML is more config, aspect file is more functionality -->
+          <aop:around method="myAround" pointcut="execution(* get*())" />       <!-- inline/inner pointcut -->
+       </aop:aspect>
+        
+    </aop:config>
     
 </beans>
