@@ -5,6 +5,7 @@
  */
 package service;
 
+import aspect.Loggable;
 import model.Circle;
 import model.Triangle;
 
@@ -15,10 +16,10 @@ import model.Triangle;
 public class ShapeSrv {
     private Circle circle;
     private Triangle triangle;
-
+    @Loggable
     public Circle getCircle() {
    //     throw(new IndexOutOfBoundsException());
-        System.out.println("getCircle");
+//        System.out.println("getCircle");
         return circle;
     }
 

@@ -5,6 +5,7 @@
  */
 package model;
 
+import aspect.Loggable;
 import java.io.IOException;
 import java.util.concurrent.TimeoutException;
 import javax.xml.crypto.dsig.TransformException;
@@ -22,7 +23,7 @@ public class Circle {
     public String getName() {
         return name;
     }
-
+    @Loggable
     public void setName(String name) {
         this.name = name;
         System.out.println("Set Name:"+name);

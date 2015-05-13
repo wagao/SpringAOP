@@ -55,7 +55,8 @@ public class LoggingAspc {
 //        System.out.println("out of bound Ex:"+ throwEx );         
 //     }
 //     
-     @Around("allGetter()")
+//     @Around("allGetter()")
+    @Around("@annotation(aspect.Loggable)")
      public Object myAround(ProceedingJoinPoint pjp){
          Object returnValue =null;
          try{
