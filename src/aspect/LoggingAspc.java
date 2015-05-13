@@ -7,6 +7,9 @@ package aspect;
 
 import model.Circle;
 import org.aspectj.lang.JoinPoint;
+import org.aspectj.lang.annotation.After;
+import org.aspectj.lang.annotation.AfterReturning;
+import org.aspectj.lang.annotation.AfterThrowing;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
@@ -19,24 +22,35 @@ import org.aspectj.lang.annotation.Pointcut;
 public class LoggingAspc {
 //    @Before("execution(public * model.*.get*(..))")
     
-    @Before("allCircleMed()")// combine pointcuts
-    public void loggingAdvi(JoinPoint joinP){
-//        System.out.println(joinP.toString()); // get the Called info
-//        System.out.println(joinP.getTarget()); // get caller and use it
-//        Circle c= (Circle) joinP.getTarget();        
-    }
-     @Before("args(str)")
-     public void stringArgumentsMed(String str){
-        System.out.println("Meds take String as Para:"+str);         
+//    @After("args(str)")
+//     public void stringArgumentsMed(String str){
+//        System.out.println("after Meds take String as Para:"+str);         
+//     }
+//     
+    @AfterReturning("args(str)")
+     public void stringArgumentsMedAfterReturn(String str){
+        System.out.println("run after Meds Return"+str);         
+     }
+//     
+//    @AfterThrowing("args(str)")
+//     public void theAfterThrow(String str){
+//        System.out.println("Exception:  ");         
+//     }
+     
+    @AfterReturning(pointcut="args(str)", returning="returningObje")
+     public void myReturnSet(String str,Object returningObje){
+        System.out.println("Return after Return "+returningObje);         
+     }
+    
+     
+    @AfterThrowing(pointcut="args(str)", throwing="throwEx")
+     public void myThrowSet(String str,  NullPointerException throwEx){
+        System.out.println("Throw after Null Ex:"+ throwEx );         
      }
      
+    @AfterThrowing(pointcut="args(str)", throwing="throwEx")
+     public void myThrowSet2(String str, IndexOutOfBoundsException throwEx){
+        System.out.println("out of bound Ex:"+ throwEx );         
+     }
     
-    @Pointcut("within(model.Circle)") // any method within that Class    
-//    @Pointcut("within(model.Circle..*)") // any method or subPackage method, or class
-    public void allCircleMed(){    }
-    
-    
-    
-//    @Pointcut(args())
-//    public void allCircle(){    }
 }

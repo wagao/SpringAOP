@@ -12,11 +12,12 @@
         <property name="name" value="My name is Triangle" />
     </bean>
     <bean name="circle" class="model.Circle">
-        <property name="name" value="My name is Circle" />
+        <!--<property name="name" value="My name is Circle" />--> 
     </bean>
     
     <bean name="shapeService" class="service.ShapeSrv" autowire="byName" >
     </bean>
+    
     <aop:aspectj-autoproxy> </aop:aspectj-autoproxy>
     <bean name="logginAspect" class="aspect.LoggingAspc" > </bean>
     
