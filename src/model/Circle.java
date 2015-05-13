@@ -26,14 +26,13 @@ public class Circle {
     public void setName(String name) {
         this.name = name;
         System.out.println("Set Name:"+name);
-//        TimeoutException e =new TimeoutException();
-        throw(new IndexOutOfBoundsException());
+//        throw(new IndexOutOfBoundsException());
 //        throw(new RuntimeException()); // for different type of Ex, can have different throw Method in AspectLogging
     }
-    public String setNameReturn(String name) {
-        this.name = name;
-        System.out.println("Set Name:"+name);
-//        throw(new RuntimeException());
-        return this.name;
-    }
+//    public String setNameReturn(String name) {
+//        this.name = name;
+//        System.out.println("Set Name:"+name);
+////        throw(new RuntimeException());
+//        return this.name;
+//    }
 }

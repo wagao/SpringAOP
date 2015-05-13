@@ -17,6 +17,8 @@ public class ShapeSrv {
     private Triangle triangle;
 
     public Circle getCircle() {
+   //     throw(new IndexOutOfBoundsException());
+        System.out.println("getCircle");
         return circle;
     }
 

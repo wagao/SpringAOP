@@ -25,6 +25,7 @@ public class SpringAOP {
  //       System.out.println(shapeService.getTriangle().getName());
 //        shapeService.getCircle().setNameReturn("Dummy");
         shapeService.getCircle().setName("Dummy");
+//        shapeService.getCircle().getName();
 //        System.out.println(shapeService.getCircle().getName());
     }
     
