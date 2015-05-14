@@ -36,6 +36,7 @@ public class LoggingAspc {
         return returnValue;
      }
 //     
-//    @Pointcut("execution(* get*())")
-//    public void allGetter(){}
+     public void logAdv(){
+        System.out.println("log Adv");  
+     }
 }

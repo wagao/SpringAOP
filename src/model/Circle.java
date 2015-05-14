@@ -23,7 +23,7 @@ public class Circle {
     public String getName() {
         return name;
     }
-    @Loggable
+//    @Loggable
     public void setName(String name) {
         this.name = name;
         System.out.println("Set Name:"+name);

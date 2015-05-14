@@ -7,6 +7,7 @@ package springaop;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+import service.FactorySrv;
 import service.ShapeSrv;
 
 /**
@@ -19,14 +20,9 @@ public class SpringAOP {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        ApplicationContext ctx = new ClassPathXmlApplicationContext("spring.xml");
-//        Shape shapeService = (Shape) ctx.getBean("shapeService");
-        ShapeSrv shapeService =   ctx.getBean("shapeService", ShapeSrv.class);
- //       System.out.println(shapeService.getTriangle().getName());
-//        shapeService.getCircle().setNameReturn("Dummy");
-        shapeService.getCircle().setName("Dummy");
-//        shapeService.getCircle().getName();
-//        System.out.println(shapeService.getCircle().getName());
+        FactorySrv facSrv = new FactorySrv();
+        ShapeSrv shapeSrv = (ShapeSrv) facSrv.getBean("ShapeSrv");
+        shapeSrv.getCircle();//.setName("Dummy");
     }
     
 }

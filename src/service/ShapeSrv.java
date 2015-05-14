@@ -19,7 +19,7 @@ public class ShapeSrv {
     @Loggable
     public Circle getCircle() {
    //     throw(new IndexOutOfBoundsException());
-//        System.out.println("getCircle");
+        System.out.println("getCircle");
         return circle;
     }
 
